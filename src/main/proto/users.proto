@@ -7,12 +7,11 @@ service Users {
 }
 
 message UsersRequest {
-    int32 id = 0;
-    string name = 1;
-    timestamp
+    int32 id = 1;
+    string name = 2;
 }
 
-message HelloResponse {
+message UsersResponse {
     string message = 1;
     int32 nameLength = 2;
 }

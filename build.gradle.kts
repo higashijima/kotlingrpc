@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+// protobuf関連のimport
 import com.google.protobuf.gradle.*
 import org.gradle.kotlin.dsl.provider.gradleKotlinDslOf
 
@@ -8,6 +9,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.10.RELEASE"
 	kotlin("jvm") version "1.3.72"
 	kotlin("plugin.spring") version "1.3.72"
+	// protobufを追加
 	id("com.google.protobuf") version "0.8.8"
 }
 
@@ -19,6 +21,7 @@ repositories {
 	mavenCentral()
 }
 
+// 自動生成クラスの出力先
 sourceSets{
 	create("kotlingrpc"){
 		proto{
@@ -28,6 +31,7 @@ sourceSets{
 }
 
 dependencies {
+	// grpc関連を追加
 	implementation("com.google.protobuf:protobuf-java:3.6.1")
 	implementation("io.grpc:grpc-stub:1.15.1")
 	implementation("io.grpc:grpc-protobuf:1.15.1")
@@ -40,6 +44,7 @@ dependencies {
 	}
 }
 
+// コードジェネレータの設定
 protobuf{
 	protoc{
 		artifact = "com.google.protobuf:protoc:3.6.1"
