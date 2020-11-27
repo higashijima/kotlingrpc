@@ -13,6 +13,7 @@ plugins {
 
 	// protobufを追加
 	id("com.google.protobuf") version "0.8.8"
+	war
 }
 
 group = "jp.boctok"
@@ -35,15 +36,16 @@ sourceSets{
 dependencies {
 	// grpc関連を追加
 	implementation("com.google.protobuf:protobuf-java:3.6.1")
-	implementation("io.grpc:grpc-stub:1.15.1")
-	implementation("io.grpc:grpc-protobuf:1.15.1")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-web-services")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.apache.maven.plugins:maven-assembly-plugin:3.1.1")
 //	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4")
 	implementation("io.github.lognet:grpc-spring-boot-starter:4.2.2")
+	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+	testImplementation("org.junit.platform:junit-platform-launcher")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
