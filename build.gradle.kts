@@ -42,7 +42,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.apache.maven.plugins:maven-assembly-plugin:3.1.1")
-//	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4")
+	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4")
 	implementation("io.github.lognet:grpc-spring-boot-starter:4.2.2")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 	testImplementation("org.junit.platform:junit-platform-launcher")
@@ -50,6 +50,7 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	runtimeOnly("com.h2database:h2") // 追加
 }
 
 // コードジェネレータの設定
